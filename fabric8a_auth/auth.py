@@ -97,6 +97,14 @@ def login_required(view):
         lgr = current_app.logger
 
         threescale_account_secret = get_threescale_account_secret_header()
+        print("Three Scale token", os.getenv('THREESCALE_ACCOUNT_SECRET'))
+        lgr.info('Three Scale token')
+        lgr.info(os.getenv('THREESCALE_ACCOUNT_SECRET'))
+
+        print("Secret from headers", threescale_account_secret)
+        lgr.info('Secret from headersss')
+        lgr.info(threescale_account_secret)
+
         if threescale_account_secret is not None:
             if os.getenv('THREESCALE_ACCOUNT_SECRET') == threescale_account_secret:
                 g.decoded_token = {}
